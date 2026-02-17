@@ -52,10 +52,30 @@ public class StringUtils {
 		return new String(chars1).equals(new String(chars2)) ? true : false;
 	}
 
+	public static String Swap(String s) {
+		String regex = " ";
+		String[] words = s.split(regex);
+		StringBuilder sb = new StringBuilder();
+
+		for (int i = 0; i < words.length; i++) {
+			char[] word = words[i].toCharArray();
+			char tmp = word[0];
+			word[0] = word[word.length - 1];
+			word[word.length - 1] = tmp;
+			sb.append(new String(word));
+			if (i < words.length - 1) {
+				sb.append(" ");
+			}
+		}
+
+		return sb.toString();
+	}
+
 	public static void main(String[] args) {
 		System.out.println(Reverse("Hello, World!"));
 		System.out.println(Explode("Baku"));
 		System.out.println(Sort("Baku"));
 		System.out.println(Anagram("listen", "silent"));
+		System.out.println(Swap("This is PP2 Spring 2026"));
 	}
 }
