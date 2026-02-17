@@ -39,9 +39,23 @@ public class StringUtils {
 		return new String(chars);
 	}
 
+	public static boolean Anagram(String s1, String s2) {
+		s1 = s1.toLowerCase();
+		s2 = s2.toLowerCase();
+
+		char[] chars1 = s1.toCharArray();
+		char[] chars2 = s2.toCharArray();
+
+		java.util.Arrays.sort(chars1);
+		java.util.Arrays.sort(chars2);
+
+		return new String(chars1).equals(new String(chars2)) ? true : false;
+	}
+
 	public static void main(String[] args) {
 		System.out.println(Reverse("Hello, World!"));
 		System.out.println(Explode("Baku"));
 		System.out.println(Sort("Baku"));
+		System.out.println(Anagram("listen", "silent"));
 	}
 }
